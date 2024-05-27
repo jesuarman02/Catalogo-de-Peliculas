@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to right, 
+        #0051A2 0%,        
+        #0051A2 15%,      
+        #ffffff 15%,       
+        #ffffff 85%,       
+        #0051A2 80%,       
+        #0051A2 15%
+    );
+    border-top: 80px solid #0051A2;
+}
+.block  h2{
+    position: absolute; 
+    left: 75%;
+    top: 1%;
+    font-family: fantasy;
+    font-size: 40px;
+    color: #ffffff;
+    text-shadow: 0 0 2px #ffff00,
+    0 0 4px #ffff00, 
+    0 0 4px #ffff00; 
+}
+.pelicula{
+    position: absolute;
+    top: 18%;
+    left: 35%;
+    width: 500px;
+    height: auto;
+}
+.pelicula .form-control{
+    border: 3px solid #007bff;
+    border-radius: 8px;
+}
+.director{
+    position: absolute;
+    top: 29%;
+    left: 35%;
+    width: 500px;
+    height: auto;
+}
+.director .form-control{
+    border: 3px solid #007bff;
+    border-radius: 8px;
+}
+.year{
+    position: absolute;
+    top: 39%;
+    left: 35%;
+    width: 500px;
+    height: auto; 
+}
+.year .form-control{
+    border: 3px solid #007bff;
+    border-radius: 8px;
+}
+button{
+    position: absolute;
+    top: 50%;
+    left: 46%;
+}
