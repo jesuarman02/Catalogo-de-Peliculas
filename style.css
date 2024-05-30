@@ -1,118 +1,113 @@
 body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(to right, 
-        #0051A2 0%,        
-        #0051A2 15%,      
-        #ffffff 15%,       
-        #ffffff 85%,       
-        #0051A2 80%,       
-        #0051A2 15%
-    );
-    border-top: 80px solid #0051A2;
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(
+    to right,
+    #0051a2 10%,
+    #0051a2 3%,
+    #ffffff 3%,
+    #ffffff 90%,
+    #0051a2 3%,
+    #0051a2 3%
+    
+  );
+  border-top: 80px solid #0051a2;
 }
 
 .block h2 {
-    position: absolute; 
-    left: 65%;
-    top: 2%;
-    font-family: 'Arial', sans-serif; 
-    font-size: 44px; 
-    color: #FFFF00; 
-    text-shadow: 
-        0 0 3px #FFFF00,  
-        0 0 8px #FFFF00, 
-        0 0 10px #FFD700, 
-        0 0 20px #FFA500, 
-        0 0 40px #FF8C00; 
+  position: absolute;
+  left: 65%;
+  top: 2%;
+  font-family: "Arial", sans-serif;
+  font-size: 44px;
+  color: #ffff00;
+  text-shadow: 0 0 3px #ffff00, 0 0 8px #ffff00, 0 0 10px #ffd700,
+    0 0 20px #ffa500, 0 0 40px #ff8c00;
 }
 .pelicula {
-    position: absolute;
-    top: 18%;
-    left: 33%;
-    width: 500px;
-    height: auto;
+  position: absolute;
+  top: 18%;
+  left: 33%;
+  width: 500px;
+  height: auto;
 }
 .pelicula .form-control {
-    border: 3px solid #007bff;
-    border-radius: 8px;
+  border: 3px solid #007bff;
+  border-radius: 8px;
 }
 .director {
-    position: absolute;
-    top: 29%;
-    left: 33%;
-    width: 500px;
-    height: auto;
+  position: absolute;
+  top: 29%;
+  left: 33%;
+  width: 500px;
+  height: auto;
 }
 .director .form-control {
-    border: 3px solid #007bff;
-    border-radius: 8px;
+  border: 3px solid #007bff;
+  border-radius: 8px;
 }
 .year {
-    position: absolute;
-    top: 39%;
-    left: 33%;
-    width: 500px;
-    height: auto; 
+  position: absolute;
+  top: 39%;
+  left: 33%;
+  width: 500px;
+  height: auto;
 }
 .year .form-control {
-    border: 3px solid #007bff;
-    border-radius: 8px;
+  border: 3px solid #007bff;
+  border-radius: 8px;
 }
 
 .agregar button {
-    position: absolute;
-    top: 50%;
-    left: 34%;
-    width: 480px;
-    height: auto;
-    font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 34%;
+  width: 480px;
+  height: auto;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.mostrar button{
-    position: absolute;
-    top: 50%;
-    left: 34%;
-    width: 480px;
-    height: auto;
-    font-family: Arial, Helvetica, sans-serif;
+.mostrar button {
+  position: absolute;
+  top: 50%;
+  left: 34%;
+  width: 480px;
+  height: auto;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .imagenes {
-    width: 450px;
-    left: 1%;
-    top: 8%;
-    height: auto; 
-    overflow: hidden;
-    position: relative;
-    text-align: center;
+  width: 450px;
+  left: 1%;
+  top: 8%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
 }
 
 .imagenes1 {
-    width: 100%;
-    height: auto;
-    transition: filter 0.3s ease-in-out;
-    cursor: pointer;
+  width: 100%;
+  height: auto;
+  transition: filter 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .imagenes1:hover {
-    filter: brightness(1.2); 
+  filter: brightness(1.2);
 }
 
 .imagenes1 {
-    cursor: pointer;
-    cursor: url('cursor-hand.png'), pointer;
+  cursor: pointer;
+  cursor: url("cursor-hand.png"), pointer;
 }
 #tablaPeliculas {
-    position: absolute;
-    top: 76%;
-    left: 35%;
-    font-size: 18px; 
-    width: 30%; 
+  position: absolute;
+  top: 76%;
+  left: 35%;
+  font-size: 18px;
+  width: 30%;
 }
 
 #tablaPeliculas th,
-#tablaPeliculas td{
-    border: 2px solid #007bff;
+#tablaPeliculas td {
+  border: 2px solid #007bff;
 }
-
-
-
