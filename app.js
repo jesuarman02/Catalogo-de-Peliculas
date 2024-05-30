@@ -4,38 +4,76 @@ class Catalogo {
     agregarPelicula(titulo, director, year) {
         const pelicula = { id: Date.now(), titulo, director, year };
         this.#peliculas.push(pelicula);
-        this.mostrarPeliculas();
-    }
-
-    editarPelicula(id, nuevoTitulo, nuevoDirector, nuevoYear) {
-        const pelicula = this.#peliculas.find(p => p.id === id);
-        if (pelicula) {
-            pelicula.titulo = nuevoTitulo;
-            pelicula.director = nuevoDirector;
-            pelicula.year = nuevoYear;
-            this.mostrarPeliculas();
-        }
-    }
-
-    eliminarPelicula(id) {
-        this.#peliculas = this.#peliculas.filter(p => p.id !== id);
-        this.mostrarPeliculas();
     }
 
     mostrarPeliculas() {
-        const movieList = document.getElementById('movieList');
-        movieList.innerHTML = '';
-        this.#peliculas.forEach(pelicula => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <span><strong>${pelicula.titulo}</strong> (${pelicula.year}) - ${pelicula.director}</span>
-                <div class="actions">
-                    <button onclick="editarPelicula(${pelicula.id})">Editar</button>
-                    <button onclick="eliminarPelicula(${pelicula.id})">Eliminar</button>
-                </div>
+        const tablaCuerpo = document.getElementById('tablaCuerpo');
+        tablaCuerpo.innerHTML = '';
+        this.#peliculas.forEach((pelicula, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <th scope="row">${index + 1}</th>
+                <td>${pelicula.titulo}</td>
+                <td>${pelicula.director}</td>
+                <td>${pelicula.year}</td>
+                <td><button class="btn btn-primary btn-editar" data-index="${index}">Editar</button></td>
+                <td><button class="btn btn-danger btn-eliminar" data-index="${index}">Eliminar</button></td>
             `;
-            movieList.appendChild(li);
+            tablaCuerpo.appendChild(row);
         });
+
+        const tablaPeliculas = document.getElementById('tablaPeliculas');
+        tablaPeliculas.className = 'table table-striped table-bordered';
+        tablaPeliculas.style.display = 'block';
+
+        tablaCuerpo.querySelectorAll('.btn-editar').forEach(btn => {
+            btn.addEventListener('click', (event) => {
+                const index = event.target.dataset.index;
+                this.editarPelicula(parseInt(index));
+            });
+        });
+
+        tablaCuerpo.querySelectorAll('.btn-eliminar').forEach(btn => {
+            btn.addEventListener('click', (event) => {
+                const index = event.target.dataset.index;
+                this.eliminarPelicula(parseInt(index));
+            });
+        });
+    }
+
+    editarPelicula(index) {
+        const pelicula = this.#peliculas[index];
+    
+        Swal.fire({
+            title: 'Editar Película',
+            html:
+                `<input id="titulo-edit" class="swal2-input" placeholder="Título" value="${pelicula.titulo}">` +
+                `<input id="director-edit" class="swal2-input" placeholder="Director" value="${pelicula.director}">` +
+                `<input id="year-edit" class="swal2-input" placeholder="Año" value="${pelicula.year}">`,
+            focusConfirm: false,
+            preConfirm: () => {
+                return [
+                    document.getElementById('titulo-edit').value,
+                    document.getElementById('director-edit').value,
+                    document.getElementById('year-edit').value
+                ];
+            }
+        }).then((result) => {
+            const [titulo, director, year] = result.value;
+            if (titulo && director && year) {
+                this.#peliculas[index] = { ...pelicula, titulo, director, year: parseInt(year) };
+                this.mostrarPeliculas();
+                Swal.fire('¡Éxito!', 'Película editada exitosamente', 'success');
+            } else {
+                Swal.fire('Error', 'Por favor, completa todos los campos', 'error');
+            }
+        });
+    }
+    
+
+    eliminarPelicula(index) {
+        this.#peliculas.splice(index, 1);
+        this.mostrarPeliculas();
     }
 }
 
@@ -51,24 +89,47 @@ document.getElementById('validar').addEventListener('click', () => {
         document.getElementById('titulo').value = '';
         document.getElementById('director').value = '';
         document.getElementById('year').value = '';
+        Swal.fire({
+            title: '¡Bien!',
+            text: 'Pelicula agregada exitosamente',
+            icon: 'success',
+            confirmButtonColor: '#4CAF50',
+        });
     } else {
-        alert('Por favor, completa todos los campos');
+        Swal.fire({
+            title: '¡Error!',
+            text: 'Por favor, completa todos los campos',
+            icon: 'error',
+            confirmButtonColor: '#dd0813',
+        });
     }
 });
 
-function editarPelicula(id) {
-    const nuevoTitulo = prompt('Nuevo título:');
-    const nuevoDirector = prompt('Nuevo director:');
-    const nuevoYear = prompt('Nuevo año:');
-    if (nuevoTitulo && nuevoDirector && nuevoYear) {
-        catalogo.editarPelicula(id, nuevoTitulo, nuevoDirector, parseInt(nuevoYear));
-    } else {
-        alert('Por favor, completa todos los campos');
+document.getElementById('mostrar').addEventListener('click', () => {
+    catalogo.mostrarPeliculas();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const images = [
+        'imagenes/1.jpg',
+        'imagenes/2.jpg',
+        'imagenes/3.jpg',
+        'imagenes/4.jpg',
+        'imagenes/5.jpg',
+        'imagenes/6.jpg',
+        'imagenes/7.jpg',
+        'imagenes/8.jpg',
+        'imagenes/9.jpg',
+        'imagenes/10.jpg'
+    ];
+
+    let currentIndex = 0;
+    const imagenes1 = document.querySelector('.imagenes1');
+
+    function changeImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        imagenes1.src = images[currentIndex];
     }
-}
 
-function eliminarPelicula(id) {
-    catalogo.eliminarPelicula(id);
-}
-
-catalogo.mostrarPeliculas();
+    setInterval(changeImage, 15000);
+});

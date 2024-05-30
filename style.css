@@ -11,52 +11,108 @@ body {
     );
     border-top: 80px solid #0051A2;
 }
-.block  h2{
+
+.block h2 {
     position: absolute; 
-    left: 75%;
-    top: 1%;
-    font-family: fantasy;
-    font-size: 40px;
-    color: #ffffff;
-    text-shadow: 0 0 2px #ffff00,
-    0 0 4px #ffff00, 
-    0 0 4px #ffff00; 
+    left: 65%;
+    top: 2%;
+    font-family: 'Arial', sans-serif; 
+    font-size: 44px; 
+    color: #FFFF00; 
+    text-shadow: 
+        0 0 3px #FFFF00,  
+        0 0 8px #FFFF00, 
+        0 0 10px #FFD700, 
+        0 0 20px #FFA500, 
+        0 0 40px #FF8C00; 
 }
-.pelicula{
+.pelicula {
     position: absolute;
     top: 18%;
-    left: 35%;
+    left: 33%;
     width: 500px;
     height: auto;
 }
-.pelicula .form-control{
+.pelicula .form-control {
     border: 3px solid #007bff;
     border-radius: 8px;
 }
-.director{
+.director {
     position: absolute;
     top: 29%;
-    left: 35%;
+    left: 33%;
     width: 500px;
     height: auto;
 }
-.director .form-control{
+.director .form-control {
     border: 3px solid #007bff;
     border-radius: 8px;
 }
-.year{
+.year {
     position: absolute;
     top: 39%;
-    left: 35%;
+    left: 33%;
     width: 500px;
     height: auto; 
 }
-.year .form-control{
+.year .form-control {
     border: 3px solid #007bff;
     border-radius: 8px;
 }
-button{
+
+.agregar button {
     position: absolute;
     top: 50%;
-    left: 46%;
+    left: 34%;
+    width: 480px;
+    height: auto;
+    font-family: Arial, Helvetica, sans-serif;
 }
+.mostrar button{
+    position: absolute;
+    top: 50%;
+    left: 34%;
+    width: 480px;
+    height: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.imagenes {
+    width: 450px;
+    left: 1%;
+    top: 8%;
+    height: auto; 
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.imagenes1 {
+    width: 100%;
+    height: auto;
+    transition: filter 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.imagenes1:hover {
+    filter: brightness(1.2); 
+}
+
+.imagenes1 {
+    cursor: pointer;
+    cursor: url('cursor-hand.png'), pointer;
+}
+#tablaPeliculas {
+    position: absolute;
+    top: 76%;
+    left: 35%;
+    font-size: 18px; 
+    width: 30%; 
+}
+
+#tablaPeliculas th,
+#tablaPeliculas td{
+    border: 2px solid #007bff;
+}
+
+
+
