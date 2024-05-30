@@ -111,16 +111,16 @@ document.getElementById('mostrar').addEventListener('click', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const images = [
-        'imagenes/1.jpg',
-        'imagenes/2.jpg',
-        'imagenes/3.jpg',
-        'imagenes/4.jpg',
-        'imagenes/5.jpg',
-        'imagenes/6.jpg',
-        'imagenes/7.jpg',
-        'imagenes/8.jpg',
-        'imagenes/9.jpg',
-        'imagenes/10.jpg'
+        '1.jpg',
+        '2.jpg',
+        '3.jpg',
+        '4.jpg',
+        '5.jpg',
+        '6.jpg',
+        '7.jpg',
+        '8.jpg',
+        '9.jpg',
+        '10.jpg'
     ];
 
     let currentIndex = 0;
